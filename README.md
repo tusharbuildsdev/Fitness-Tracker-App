@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".github/images/banner.png" alt="FitTrack Pro — Fitness Tracker App" width="100%" />
+  <img src=".github/images/banner.png" alt="FitTrack Pro - Fitness Tracker App" width="100%" />
 
 # FitTrack Pro
 
@@ -56,15 +56,15 @@ All screenshots above are real project screens. The add-workout sample uses the 
 
 ```text
 Fitness-Tracker-App/
-├── App.tsx                 # Navigation and application entry point
-├── src/
-│   ├── app/config/         # Firebase configuration
-│   ├── features/           # Feature modules: screens, hooks, services, schemas, types
-│   ├── theme/              # Shared visual theme
-│   └── utils/              # Shared utilities
-├── .github/images/         # Repository banner and real app screenshots
-├── firestore.rules         # Firestore security rules
-└── package.json            # Scripts and dependencies
+|-- App.tsx                 # Navigation and application entry point
+|-- src/
+|   |-- app/config/         # Firebase configuration
+|   |-- features/           # Feature modules: screens, hooks, services, schemas, types
+|   |-- theme/              # Shared visual theme
+|   `-- utils/              # Shared utilities
+|-- .github/images/         # Repository banner and real app screenshots
+|-- firestore.rules         # Firestore security rules
+`-- package.json            # Scripts and dependencies
 ```
 
 ## Run locally
