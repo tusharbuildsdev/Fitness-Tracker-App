@@ -1,84 +1,58 @@
-# Contributing to Fitness Tracker App
+# Contributing to FitTrack Pro
 
-Thanks for investing time in improving Fitness Tracker App. Contributions can include bug reports, documentation improvements, feature proposals, tests, and code changes. By participating, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+Thank you for improving FitTrack Pro. This guide keeps changes reviewable, predictable, and safe for users.
 
-## Before You Start
+## Before you begin
 
-- Search existing [issues](https://github.com/tusharbuildsdev/Fitness-Tracker-App/issues) and pull requests to avoid duplicate work.
-- For a substantial feature or behavior change, open an issue first to discuss scope and approach.
-- Do not include secrets, personal data, Firebase credentials, or generated build artifacts in a contribution.
+Read the [README](README.md), [Code of Conduct](CODE_OF_CONDUCT.md), [security policy](SECURITY.md), and relevant documentation in [`docs`](docs/). For a substantial change, open an issue first so maintainers and contributors can agree on scope.
 
-## Development Workflow
+Do not report security vulnerabilities in public issues. Follow [SECURITY.md](SECURITY.md).
 
-1. **Fork** this repository on GitHub.
-2. **Clone** your fork and install dependencies:
+## Local development
 
-   ```bash
-   git clone https://github.com/<your-username>/Fitness-Tracker-App.git
-   cd Fitness-Tracker-App
-   npm install
-   ```
+1. Fork the repository and create a branch from the default branch: `git switch -c feat/short-description`.
+2. Install the locked dependency tree with `npm ci`.
+3. Copy `.env.example` to `.env` and configure Firebase as described in [Firebase setup](docs/FIREBASE_SETUP.md).
+4. Start the app with `npm run start`.
+5. Validate your change with `npm run typecheck` and `npm run lint`.
 
-3. **Create a branch** from the current default branch. Use a descriptive prefix:
+## Working conventions
 
-   ```bash
-   git checkout -b feat/water-goal-reminders
-   # or: fix/profile-validation
-   # or: docs/setup-guide
-   ```
+- Keep feature code inside `src/features/<feature>/` and colocate components, hooks, schemas, services, types, and screens when practical.
+- Use TypeScript types rather than `any`; validate user-entered data with the feature’s Zod schema.
+- Keep Firebase and storage access in services, not presentation components.
+- Preserve existing accessibility labels, touch targets, and theme behavior.
+- Never commit `.env`, credentials, generated build outputs, or personal device data.
 
-4. **Make focused changes.** Keep one pull request scoped to one concern. Add or update documentation when behavior, setup, or user-facing flows change.
+## Pull requests
 
-5. **Validate your work** before committing:
+Use a focused title in the imperative mood, such as `feat: add hydration reminder settings`. Include:
 
-   ```bash
-   npm run lint
-   npm run typecheck
-   ```
+- The user-facing outcome and implementation summary.
+- Linked issue(s), if applicable.
+- Screenshots or a short recording for UI changes.
+- Manual test steps, target platform(s), and any Firebase or migration requirements.
+- Documentation updates when behavior, setup, or data contracts change.
 
-   Run the app with `npm start` and test the affected flow on the target platform(s).
+Maintainers may request changes to scope, naming, tests, documentation, or accessibility before merging.
 
-6. **Commit** with a concise, imperative message:
+## Commit messages
 
-   ```bash
-   git add .
-   git commit -m "feat: add water goal reminders"
-   ```
+Conventional-style messages are encouraged:
 
-7. **Push** your branch:
+```text
+feat: add weekly sleep target
+fix: prevent duplicate workout saves
+docs: clarify Firebase configuration
+chore: update Expo dependencies
+```
 
-   ```bash
-   git push origin feat/water-goal-reminders
-   ```
+## Issue etiquette
 
-8. **Open a pull request** against the default branch. Complete the PR description with the problem, solution, testing performed, screenshots for UI changes, and any follow-up work.
+Search existing issues before opening a new one. Use the provided templates, include reproducible details, and keep one concern per issue. Questions belong in Discussions when available.
 
-## Coding Standards
+## License
 
-- Use TypeScript and preserve strict, meaningful types; avoid `any` unless a documented boundary requires it.
-- Follow the project’s feature-first structure. Keep screens, components, hooks, schemas, services, and types with their feature when practical.
-- Use React Hook Form and Zod for new user-input flows.
-- Keep Firestore access inside feature services rather than UI components.
-- Prefer clear, small components and functions with descriptive names.
-- Match the existing React Native Paper theme and accessibility patterns. Provide readable labels, touch targets, and accessible text for interactive controls.
-- Format code consistently with the existing codebase and resolve all lint/type-check errors.
-- Do not commit `.env`, credentials, API keys, or private user data.
+By contributing, you agree that your contributions are licensed under the [MIT License](LICENSE).
 
-## Reporting Issues
-
-A useful issue includes:
-
-- A clear, descriptive title
-- What you expected to happen and what actually happened
-- Reproduction steps, including relevant screen or action sequence
-- Device, OS, Expo SDK, and app version where applicable
-- Screenshots, recordings, logs, or error messages with sensitive details removed
-- A minimal proposed solution, if you have one
-
-Use a security report—not a public issue—for vulnerabilities. See [SECURITY.md](SECURITY.md).
-
-## Pull Request Review
-
-Maintainers may request changes to improve correctness, clarity, accessibility, security, or maintainability. Please respond constructively and keep the branch updated when requested. A pull request is ready to merge when it has a clear purpose, passes project checks, addresses review feedback, and is approved by a maintainer.
-
-Thank you for helping make Fitness Tracker App better.
+Return to the [README](README.md).

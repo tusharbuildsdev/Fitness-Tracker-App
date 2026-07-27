@@ -1,244 +1,177 @@
 <div align="center">
+  <img src=".github/images/banner.png" alt="FitTrack Pro banner" width="100%" />
+  <br />
+  <img src=".github/images/logo.png" alt="FitTrack Pro logo" width="120" />
 
-# Fitness Tracker App
+# FitTrack Pro
 
-### A polished, cloud-synced fitness companion built with React Native and Expo
+**A thoughtful, privacy-conscious companion for logging workouts and building healthier daily habits.**
 
-[![React Native](https://img.shields.io/badge/React%20Native-0.81-61DAFB?logo=react&logoColor=white)](https://reactnative.dev/)
-[![Expo](https://img.shields.io/badge/Expo-SDK%2054-000020?logo=expo&logoColor=white)](https://expo.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Firebase](https://img.shields.io/badge/Firebase-Cloud%20Sync-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<!-- Replace this line with a hosted typing SVG when one is available. -->
+<sub>Track workouts • Build habits • Understand your progress</sub>
 
-[Explore features](#-features) · [Get started](#-getting-started) · [Contribute](#-contributing) · [Report a bug](https://github.com/tusharbuildsdev/Fitness-Tracker-App/issues)
+[![Expo](https://img.shields.io/badge/Expo-SDK%2054-000020?logo=expo)](https://expo.dev/)
+[![React Native](https://img.shields.io/badge/React%20Native-0.81-61DAFB?logo=react)](https://reactnative.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
+[![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+[Getting started](docs/INSTALLATION.md) · [Firebase setup](docs/FIREBASE_SETUP.md) · [Contribute](CONTRIBUTING.md) · [Report a bug](../../issues/new?template=bug_report.md)
 </div>
 
-<!--
-Banner placeholder: add a repository banner at .github/images/banner.png, then
-uncomment the line below.
+## Overview
 
-![Fitness Tracker App banner](.github/images/banner.png)
--->
+FitTrack Pro is an Expo-powered React Native app for recording workouts and daily wellness signals in one focused experience. It pairs structured forms and validation with Firebase-backed cloud data, local preferences, and concise progress visualizations.
 
-## ✨ About
+## Preview
 
-**Fitness Tracker App** is a cross-platform mobile app that helps people build healthier routines through a single, thoughtful workspace for activity, workouts, nutrition, hydration, sleep, weight, and goals. Authentication and Firestore-backed cloud sync keep each user’s data private and available across sessions.
+| Home / workouts | Trackers | Profile |
+| --- | --- | --- |
+| <img src=".github/images/home.png" alt="Workout list screen" width="230" /> | <img src=".github/images/workout.png" alt="Habit trackers screen" width="230" /> | <img src=".github/images/profile.png" alt="Profile screen" width="230" /> |
 
-The project is designed as a practical example of a modern React Native application: typed domain models, feature-oriented organization, validated forms, clear navigation, and a clean Material-inspired interface.
+| Dashboard | Login | Splash |
+| --- | --- | --- |
+| <img src=".github/images/dashboard.png" alt="Analytics dashboard" width="230" /> | <img src=".github/images/login.png" alt="Login screen placeholder" width="230" /> | <img src=".github/images/splash.png" alt="Splash screen placeholder" width="230" /> |
 
-## 🚀 Features
+<div align="center">
+  <img src=".github/images/demo.gif" alt="FitTrack Pro demo" width="300" />
+</div>
 
-- Secure Firebase Authentication for user sign-in and account management
-- Personalized profiles and fitness-goal tracking
-- Workout creation, editing, details, and history management
-- Daily steps, water, calorie, sleep, and weight tracking
-- Progress charts and analytics for trend comparison
-- Cloud persistence and synchronization with Cloud Firestore
-- Input validation powered by React Hook Form and Zod
-- Responsive light/dark themes, settings, and notification preferences
-- Bottom-tab and stack navigation with React Navigation
+> Add the image assets named above to [`.github/images`](.github/images/README.md). The repository deliberately ships no fake bitmap files.
 
-## 🧰 Technology Stack
+## Features
 
-| Area | Technology |
+| Area | What you can do |
 | --- | --- |
-| Mobile framework | React Native |
-| Development platform | Expo |
-| Language | TypeScript |
-| Authentication | Firebase Authentication |
-| Database | Cloud Firestore |
-| Navigation | React Navigation |
-| UI components | React Native Paper |
-| Forms & validation | React Hook Form + Zod |
-| Charts | react-native-chart-kit |
-| Local preferences | AsyncStorage and Expo Secure Store |
+| Workouts | Create, edit, inspect, and manage workout entries. |
+| Daily tracking | Record steps, calories, water, sleep, and weight. |
+| Insights | Review historical charts, weekly progress, and trend comparisons. |
+| Profile & goals | Maintain profile details and view goal summaries. |
+| Preferences | Manage theme and notification-related settings stored locally. |
+| Cloud data | Firebase Authentication and Cloud Firestore services are configured for cloud-backed workflows. |
 
-## 🗂️ Project Structure
+## Technology stack
+
+| Layer | Tools |
+| --- | --- |
+| App platform | Expo SDK 54, React Native 0.81, React 19 |
+| Language | TypeScript |
+| Navigation | React Navigation |
+| UI | React Native Paper, Expo Vector Icons |
+| Forms & validation | React Hook Form, Zod |
+| Data & identity | Firebase Authentication, Cloud Firestore |
+| Device services | Expo Notifications, Secure Store, AsyncStorage |
+| Visualization | react-native-chart-kit, react-native-svg |
+
+## Architecture
+
+The application is organized by feature. Screens compose components and hooks; hooks coordinate services; services provide persistence and Firebase boundaries.
 
 ```text
-Fitness-Tracker-App/
-├── .github/
-│   └── images/                 # Add banner and screen captures here
-├── src/
-│   ├── app/config/             # Firebase configuration
-│   ├── features/               # Feature-first app modules
-│   │   ├── analytics/ calories/ profile/ settings/ sleep/
-│   │   └── steps/ water/ weight/ workouts/
-│   ├── theme/                  # Theme definitions
-│   └── utils/                  # Shared utilities
-├── App.tsx                     # App entry point and navigation composition
-├── firestore.indexes.json      # Firestore index definitions
-├── firestore.rules             # Firestore security rules
-├── .env.example                # Required Firebase variable template
-└── package.json
+App.tsx → navigation → feature screens → hooks → services → Firebase / device storage
+                                  └──── components, schemas, types
 ```
 
-Each feature keeps its screens, components, hooks, schemas, services, and types close together. This makes the codebase easier to extend without creating a large, shared components layer.
+Read the full [architecture guide](docs/ARCHITECTURE.md) and [project structure](docs/PROJECT_STRUCTURE.md).
 
-## 📋 Prerequisites
+## Folder structure
 
-- [Node.js](https://nodejs.org/) 18 or later
-- npm 9 or later
-- Expo Go on a physical device, or an Android/iOS simulator
-- A Firebase project with **Authentication** and **Cloud Firestore** enabled
+```text
+src/
+├── app/config/          # Firebase configuration
+├── features/            # Feature-first screens, components, hooks, services, schemas, types
+└── theme/               # Shared visual tokens
+docs/                    # Contributor and implementation documentation
+.github/                 # Community health files, CI, and repository assets
+```
 
-## 🛠️ Getting Started
-
-1. Fork the repository and clone your fork:
-
-   ```bash
-   git clone https://github.com/<your-username>/Fitness-Tracker-App.git
-   cd Fitness-Tracker-App
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Create your local environment file:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   On Windows PowerShell, use:
-
-   ```powershell
-   Copy-Item .env.example .env
-   ```
-
-4. Add your Firebase web-app configuration to `.env`.
-
-5. Start the Expo development server:
-
-   ```bash
-   npm start
-   ```
-
-Scan the QR code with Expo Go, or select a platform from the Expo developer tools.
-
-### Run on a specific platform
+## Installation
 
 ```bash
+git clone https://github.com/tusharbuildsdev/Fitness-Tracker-App.git
+cd Fitness-Tracker-App
+npm ci
+copy .env.example .env
+```
+
+Then configure Firebase values in `.env`; see [Firebase setup](docs/FIREBASE_SETUP.md). For macOS/Linux, use `cp .env.example .env`.
+
+## Environment variables
+
+```dotenv
+EXPO_PUBLIC_FIREBASE_API_KEY=
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=
+EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+EXPO_PUBLIC_FIREBASE_APP_ID=
+```
+
+These are required at app startup by [`src/app/config/firebase.ts`](src/app/config/firebase.ts). Never commit a populated `.env` file.
+
+## Run locally
+
+```bash
+npm run start
 npm run android
+# or
 npm run ios
 npm run web
 ```
 
-### Quality checks
+Before opening a pull request, run:
 
 ```bash
-npm run lint
 npm run typecheck
+npm run lint
 ```
 
-## 🔐 Environment Variables
+## Build an Android APK
 
-Copy `.env.example` to `.env` and provide values from **Firebase Console → Project settings → Your apps → SDK setup and configuration**.
+This repository does not currently include an EAS build profile. Install and authenticate with the EAS CLI, create an `eas.json` profile appropriate for internal distribution, then run an APK build:
 
-```env
-EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
-EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
+```bash
+npx eas-cli login
+npx eas-cli build --platform android --profile preview
 ```
 
-> [!IMPORTANT]
-> Never commit `.env`. Firebase web configuration identifies your project but is not a substitute for Firestore Security Rules; deploy and review the included `firestore.rules` before using a production project.
+See Expo’s [Android build documentation](https://docs.expo.dev/build/setup/) for signing and profile options.
 
-## 📸 Screenshots
+## Roadmap and future scope
 
-Screenshots belong in `.github/images/`. Add the following files to showcase the app, then GitHub will render them below.
+The project roadmap tracks planned improvements such as richer goals, export options, accessibility reviews, and automated testing. Read [ROADMAP.md](docs/ROADMAP.md) before proposing a large feature.
 
-| Home | Workouts | Profile |
-| --- | --- | --- |
-| `home.png` | `workout.png` | `profile.png` |
-| _Add `.github/images/home.png`_ | _Add `.github/images/workout.png`_ | _Add `.github/images/profile.png`_ |
+## Documentation
 
-<!--
-![Home screen](.github/images/home.png)
-![Workout screen](.github/images/workout.png)
-![Profile screen](.github/images/profile.png)
--->
+| Guide | Purpose |
+| --- | --- |
+| [Installation](docs/INSTALLATION.md) | Local setup and troubleshooting |
+| [Firebase setup](docs/FIREBASE_SETUP.md) | Firebase project and Firestore configuration |
+| [Architecture](docs/ARCHITECTURE.md) | Application boundaries and data flow |
+| [Project structure](docs/PROJECT_STRUCTURE.md) | Directory-by-directory map |
+| [Data API](docs/API.md) | Service contracts and data model guidance |
+| [FAQ](docs/FAQ.md) | Common setup and contribution questions |
 
-## 🏗️ Architecture Overview
+## Contributing
 
-```text
-UI screens & reusable components
-            ↓
-Feature hooks (state and orchestration)
-            ↓
-Feature services (data access)
-            ↓
-Firebase Authentication + Cloud Firestore
-```
+Contributions are welcome. Please read the [contributing guide](CONTRIBUTING.md), follow the [Code of Conduct](CODE_OF_CONDUCT.md), and review the [security policy](SECURITY.md) before opening an issue or pull request.
 
-- **Screens and components** present an accessible, consistent UI.
-- **Hooks** encapsulate feature state and data-flow behavior.
-- **Schemas** validate user input before data is persisted.
-- **Services** isolate Firestore operations from presentation code.
-- **Firebase** supplies identity and cloud-backed persistence.
+## License
 
-## 🌟 Project Highlights
+Distributed under the [MIT License](LICENSE).
 
-- **Feature-first design:** related code lives together, improving discoverability and maintainability.
-- **Type-safe by default:** TypeScript types and Zod schemas reduce invalid states and unsafe input.
-- **Cloud-native experience:** Firebase Authentication and Firestore support private, synchronized user data.
-- **Built for real habits:** tracking spans the most useful daily health signals rather than a single metric.
-
-## 🎯 Learning Objectives
-
-This repository is useful for developers who want hands-on experience with:
-
-- Building a production-style Expo and React Native application
-- Modeling feature domains with TypeScript
-- Integrating Firebase Authentication and Cloud Firestore
-- Structuring scalable feature modules, hooks, and services
-- Building validated mobile forms with React Hook Form and Zod
-- Creating navigation flows and polished interfaces with React Navigation and React Native Paper
-
-## 🛣️ Roadmap
-
-- [ ] Social sharing and accountability features
-- [ ] Custom workout templates and recurring workout plans
-- [ ] Health platform integrations (Apple Health and Health Connect)
-- [ ] Richer goal insights and personalized recommendations
-- [ ] Offline-first queueing with conflict resolution
-- [ ] Automated test coverage and CI workflows
-- [ ] Localization and expanded accessibility support
-
-Feature ideas and implementation help are welcome—please open an issue before beginning substantial work.
-
-## 🤝 Contributing
-
-Contributions of all sizes are appreciated. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and follow our [Code of Conduct](CODE_OF_CONDUCT.md) before opening an issue or pull request.
-
-## 📄 License
-
-Distributed under the [MIT License](LICENSE). Copyright © 2026 Tushar Verma.
-
-## 👨‍💻 Developer
+## Developer
 
 Built and maintained by [Tushar Verma](https://github.com/tusharbuildsdev).
 
-## 💬 Support
+## Acknowledgements
 
-- Open a [GitHub issue](https://github.com/tusharbuildsdev/Fitness-Tracker-App/issues) for bugs and feature requests.
-- Review [SECURITY.md](SECURITY.md) for privately reporting security vulnerabilities.
+Thanks to the Expo, React Native, Firebase, React Navigation, React Native Paper, React Hook Form, and Zod communities.
 
-## 🙏 Acknowledgements
+## Support
 
-- [Expo](https://expo.dev/) and [React Native](https://reactnative.dev/)
-- [Firebase](https://firebase.google.com/)
-- [React Navigation](https://reactnavigation.org/)
-- [React Native Paper](https://callstack.github.io/react-native-paper/)
-- [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/)
+Use [GitHub Discussions](../../discussions) for questions and ideas, or open an issue using the appropriate template. Please do not disclose vulnerabilities in public issues; use the process in [SECURITY.md](SECURITY.md).
 
 ---
 
-If this project helped you, please consider giving it a ⭐. It helps others discover the project and motivates continued improvement.
+<div align="center">If FitTrack Pro is useful to you, please consider giving it a ⭐.</div>

@@ -1,32 +1,26 @@
 # Changelog
 
-All notable changes to this project are documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+All notable changes to FitTrack Pro are documented in this file. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project aims to follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### Planned
+### Added
 
-- Automated tests and continuous integration
-- Expanded health-platform integrations
-- Additional analytics and personalized insights
+- Professional repository documentation, contribution guidance, issue templates, security policy, and continuous-integration workflow.
 
-## [1.0.0] - 2026-07-28
+## [1.0.0] - 2026-07-27
 
 ### Added
 
-- Firebase Authentication for secure user account access
-- Cloud Firestore persistence and synchronization for fitness data
-- User profiles with personalized health and fitness goals
-- Workout management, including workout forms, details, and history
-- Steps, water, calories, sleep, and weight tracking
-- Analytics views with progress comparisons and trend charts
-- React Navigation-powered mobile navigation
-- React Native Paper UI and application theme support
-- Form validation using React Hook Form and Zod
-- Settings, privacy, theme, and notification preferences
-- Firestore security rules and index definitions
+- Expo and TypeScript application foundation.
+- Workout logging with list, form, details, and editing flows.
+- Step, calorie, water, sleep, and weight trackers.
+- Progress analytics, profile, privacy, settings, local preferences, and notification services.
+- Firebase configuration for Authentication and Cloud Firestore.
+
+## Release process
+
+See [the changelog guide](docs/CHANGELOG_GUIDE.md) for categories, versioning, and release-entry conventions.
 
 [Unreleased]: https://github.com/tusharbuildsdev/Fitness-Tracker-App/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/tusharbuildsdev/Fitness-Tracker-App/releases/tag/v1.0.0
