@@ -1,18 +1,14 @@
-# Repository image assets
+# Repository images
 
-This directory intentionally contains no generated or empty image binaries. Add approved project assets using these exact filenames; the [README](../../README.md) already references them.
+This folder contains only the visual assets currently displayed in the main project README.
 
-| File | Recommended content |
+| File | Used for |
 | --- | --- |
-| `banner.png` | Wide repository banner, approximately 1600 × 500 px. |
-| `logo.png` | Square or transparent product logo. |
-| `architecture.png` | Optional visual architecture diagram. |
-| `home.png` | Workout/home screen capture. |
-| `login.png` | Login screen capture when that UI is present. |
-| `workout.png` | Workout or tracker screen capture. |
-| `profile.png` | Profile screen capture. |
-| `dashboard.png` | Analytics screen capture. |
-| `splash.png` | App splash screen capture. |
-| `demo.gif` | Short, compressed product walkthrough. |
+| `banner.png` | Repository banner |
+| `dashboard.jpeg` | Analytics preview |
+| `workout.jpeg` | Workouts preview |
+| `track.jpeg` | Daily tracking preview |
+| `add_workout.jpeg` | Add-workout form preview |
+| `setting.jpeg` | Settings preview |
 
-Use sanitized demo accounts and remove personal, health, or credential information before committing screenshots. Optimize assets for repository size and provide descriptive `alt` text when adding references.
+The screenshots were captured from FitTrack Pro. Keep filenames and descriptions accurate when replacing an image.
