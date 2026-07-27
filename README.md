@@ -67,6 +67,8 @@ Fitness-Tracker-App/
 `-- package.json            # Scripts and dependencies
 ```
 
+For the complete project map and documentation index, see [docs/README.md](docs/README.md).
+
 ## Run locally
 
 ### 1. Install dependencies
