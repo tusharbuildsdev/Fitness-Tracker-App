@@ -72,6 +72,10 @@ App.tsx → navigation → feature screens → hooks → services → Firebase /
                                   └──── components, schemas, types
 ```
 
+<div align="center">
+  <img src=".github/images/architecture.png" alt="FitTrack Pro architecture diagram" width="760" />
+</div>
+
 Read the full [architecture guide](docs/ARCHITECTURE.md) and [project structure](docs/PROJECT_STRUCTURE.md).
 
 ## Folder structure
