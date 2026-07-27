@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import type { ComponentProps } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { Button, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AnalyticsScreen } from './src/features/analytics/screens/AnalyticsScreen';
@@ -85,7 +85,7 @@ function WorkoutsNavigator() {
 }
 
 function TrackersScreen({ navigation }: { navigation: import('@react-navigation/native-stack').NativeStackNavigationProp<TrackStackParamList, 'Trackers'> }) {
-  const trackers: Array<{ name: Exclude<keyof TrackStackParamList, 'Trackers'>; label: string; icon: IconName }> = [
+  const trackers: { name: Exclude<keyof TrackStackParamList, 'Trackers'>; label: string; icon: IconName }[] = [
     { name: 'StepsTracker', label: 'Steps', icon: 'activity' },
     { name: 'CaloriesTracker', label: 'Calories', icon: 'zap' },
     { name: 'WaterTracker', label: 'Water', icon: 'droplet' },

@@ -1,6 +1,5 @@
-import { useWindowDimensions } from 'react-native';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
-import { StyleSheet, View } from 'react-native';
 import { Surface, Text } from 'react-native-paper';
 
 import type { CalorieEntry } from '../types';

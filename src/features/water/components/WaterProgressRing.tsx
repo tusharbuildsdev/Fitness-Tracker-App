@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { StyleSheet, View } from 'react-native';
-import Animated, { FadeIn, ZoomIn } from 'react-native-reanimated';
+import Animated, { ZoomIn } from 'react-native-reanimated';
 import Svg, { Circle } from 'react-native-svg';
 import { Surface, Text } from 'react-native-paper';
 

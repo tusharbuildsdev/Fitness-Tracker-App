@@ -1,7 +1,7 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useLayoutEffect, useState } from 'react';
 import { Alert, ScrollView, StyleSheet, View } from 'react-native';
-import { ActivityIndicator, Divider, Menu, Surface, Text } from 'react-native-paper';
+import { ActivityIndicator, Menu, Surface, Text } from 'react-native-paper';
 
 import { useSettings } from '../context/SettingsContext';
 import { requestNotificationPermission } from '../services/notificationService';
