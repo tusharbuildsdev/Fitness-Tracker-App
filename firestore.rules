@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isOwner(userId) { return signedIn() && request.auth.uid == userId; }
+    function validDailyDate(value) { return value is string && value.matches('^\\d{4}-\\d{2}-\\d{2}$'); }
+
+    match /users/{userId} {
+      allow create: if isOwner(userId);
+      allow read, update, delete: if isOwner(userId);
+    }
+
+    match /{collection}/{documentId} {
+      allow read: if collection in ['workouts', 'steps', 'calories', 'water', 'sleep', 'weight']
+        && isOwner(resource.data.userId);
+      allow create: if collection in ['workouts', 'steps', 'calories', 'water', 'sleep', 'weight']
+        && isOwner(request.resource.data.userId)
+        && validDailyDate(request.resource.data.dateKey);
+      allow update: if collection in ['workouts', 'steps', 'calories', 'water', 'sleep', 'weight']
+        && isOwner(resource.data.userId)
+        && request.resource.data.userId == resource.data.userId
+        && validDailyDate(request.resource.data.dateKey);
+      allow delete: if collection in ['workouts', 'steps', 'calories', 'water', 'sleep', 'weight']
+        && isOwner(resource.data.userId);
+    }
+  }
+}

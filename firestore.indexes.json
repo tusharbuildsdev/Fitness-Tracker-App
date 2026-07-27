@@ -1,0 +1,11 @@
+{
+  "indexes": [
+    { "collectionGroup": "workouts", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "dateKey", "order": "DESCENDING" }] },
+    { "collectionGroup": "steps", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "dateKey", "order": "DESCENDING" }] },
+    { "collectionGroup": "calories", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "dateKey", "order": "DESCENDING" }] },
+    { "collectionGroup": "water", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "dateKey", "order": "DESCENDING" }] },
+    { "collectionGroup": "sleep", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "dateKey", "order": "DESCENDING" }] },
+    { "collectionGroup": "weight", "queryScope": "COLLECTION", "fields": [{ "fieldPath": "userId", "order": "ASCENDING" }, { "fieldPath": "dateKey", "order": "DESCENDING" }] }
+  ],
+  "fieldOverrides": []
+}

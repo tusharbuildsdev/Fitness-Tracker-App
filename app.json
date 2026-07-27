@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "FitTrack Pro",
+    "slug": "fittrack-pro",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "plugins": ["expo-notifications"],
+    "android": { "package": "com.fittrackpro.app" },
+    "ios": { "bundleIdentifier": "com.fittrackpro.app" }
+  }
+}
